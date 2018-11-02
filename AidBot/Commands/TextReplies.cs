@@ -59,13 +59,13 @@ namespace AidBot.Commands
         public async Task lookCounterAsync()
         {
 
-            StreamReader sr = new StreamReader($@"D:\\C# Projects\AidBot\AidBot\bin\lookCounter.txt");
+            StreamReader sr = new StreamReader($@"Resources/lookCounter.txt");
             int counter = Int32.Parse(sr.ReadToEnd());
             sr.Close();
 
             counter++;
 
-            StreamWriter sw = new StreamWriter($@"D:\\C# Projects\AidBot\AidBot\bin\lookcounter.txt");
+            StreamWriter sw = new StreamWriter($@"Resources/lookCounter.txt");
             sw.WriteLine(counter);
             sw.Close();
 
