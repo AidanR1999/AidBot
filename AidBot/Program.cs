@@ -14,6 +14,8 @@ namespace AidBot
 {
     class Program : ModuleBase<SocketCommandContext>
     {
+
+        //Global Variables to store the context of the bot
         private DiscordSocketClient Client;
         private CommandService Commands;
         private IServiceProvider Services;
@@ -21,17 +23,25 @@ namespace AidBot
         static void Main(string[] args)
             => new Program().MainAsync().GetAwaiter().GetResult();
 
+        //the main task
         private async Task MainAsync()
         {
+            //new instance of client context
             Client = new DiscordSocketClient();
+
+            //new instance of command handler
             Commands = new CommandService();
+
+            //builds the connection to the discord.net api
             Services = new ServiceCollection()
                 .AddSingleton(Client)
                 .AddSingleton(Commands)
                 .BuildServiceProvider();
 
+            //bot access token
             string token = "NTA0OTkzMjk4OTUyMzU1ODQw.DrNIUQ.pWXbI-a0IfzTxk3BByKyGkMYC6A";
 
+            //logs the connection to the api
             Client.Log += Log;
 
             await RegisterCommandAsync();
@@ -83,24 +93,13 @@ namespace AidBot
 
             Console.WriteLine($"{message.Channel} - {message.Author} - {message.Timestamp} - {message} ");
 
-            StreamWriter sw = new StreamWriter($@"D:\core\AidBot\AidBot\Resources\{message.Channel}Log.txt", true);
+            StreamWriter sw = new StreamWriter($@"D:\\{message.Channel}Log.txt", true);
             sw.WriteLine($"{message.Source} {message.Author} - {message.Timestamp} - {message} ");
             sw.Close();
 
 
 
             await Task.CompletedTask;
-
-
-        }
-
-
-        [Command("ping")]
-        //ALL DEVS: name all tasks the name of the command + Async at the end
-        public async Task PingAsync()
-        {
-            //enter the text you want the bot to reply with in the async task below
-            await ReplyAsync("pong");
         }
     }
 
