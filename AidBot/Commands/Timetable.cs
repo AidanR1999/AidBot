@@ -41,7 +41,7 @@ namespace AidBot.Commands
                 output += _days[i];
                 for (int j = 0; j < 3; j++)
                 {
-                    output += _time[i, j];
+                    output += " " + _time[i, j] + " ";
                 }
             }
 
