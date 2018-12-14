@@ -13,7 +13,7 @@ namespace AidBot.Commands
     {
 
         /*
-         * This class is only for basic text replies, please use another class if your command isnt basic
+         * This class is only for basic text replies, please use another class if your command isn't basic
          */
 
         //Ping command
