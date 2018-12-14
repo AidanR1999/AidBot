@@ -71,5 +71,15 @@ namespace AidBot.Commands
 
             await ReplyAsync($"The **look counter** is now at **{counter}**");
         }
+
+        [Command("conn")]
+        public async Task ConnAsync()
+        {
+            string output = @"<connectionStrings>
+                                < add name = ""DefaultConnection"" connectionString = ""Data Source=(LocalDb)\MSSQLLocalDB;Initial Catalog=DemoEntityFramework;Integrated Security=True"" providerName = ""System.Data.SqlClient"" />  
+                             </ connectionStrings > ";
+
+            await ReplyAsync(output);
+        }
     }
 }
