@@ -69,7 +69,7 @@ namespace AidBot
         {
             var message = arg as SocketUserMessage;
 
-            await LogMessagesAsync(message);
+            //await LogMessagesAsync(message);
 
             if (message is null || message.Author.IsBot) return;
 
