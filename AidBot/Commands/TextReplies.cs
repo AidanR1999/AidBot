@@ -82,6 +82,12 @@ namespace AidBot.Commands
             await ReplyAsync(output);
         }
 
-        
+
+        //ZooShop command
+        [Command("zooshop")]
+        public async Task ZooShop()
+        {
+            await ReplyAsync("https://drive.google.com/file/d/1fZEsakTo6h4BroeKj71QzK5Da1T9wSng/view?usp=sharing");
+        }
     }
 }
